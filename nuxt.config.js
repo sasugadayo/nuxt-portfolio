@@ -18,7 +18,7 @@ export default {
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: [],
+  css: ['ress', '~/assets/scss/base.scss', '~/assets/scss/global.scss'],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [],
@@ -32,11 +32,35 @@ export default {
     '@nuxtjs/eslint-module',
     // https://go.nuxtjs.dev/stylelint
     '@nuxtjs/stylelint-module',
+    '@nuxtjs/style-resources',
   ],
 
+  styleResources: {
+    scss: ['~/assets/scss/app.scss'],
+    hoistUseStatements: true,
+  },
+
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: [],
+  modules: [
+    'nuxt-webfontloader',
+    'nuxt-microcms-module',
+  ],
+
+  microcms: {
+    options: {
+      serviceDomain: process.env.SERVICE_DOMAIN,
+      apiKey: process.env.GET_API_KEY,
+    },
+    mode: process.env.NODE_ENV === 'production' ? 'server' : 'all',
+  },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
+
+  webfontloader: {
+    google: {
+      families: ['Ubuntu:wght@400,700&display=swap'],
+    },
+  },
+
 }
