@@ -9,6 +9,29 @@
 
     <div class="container">
       <ol class="row works">
+        <li v-for="work in works.contents" :key="work.id" class="works__item">
+          <nuxt-link :to="`/works/${work.id}/`" class="works__inner">
+            <figure class="works__image">
+              <img
+                :width="work.thumbnail.width"
+                :height="work.thumbnail.height"
+                :src="work.thumbnail.url"
+                :alt="work.title"
+              />
+            </figure>
+            <div class="works__text">
+              <p class="works__name">{{ work.title }}</p>
+              <p class="works__date">
+                <time
+                  :datetime="work.release"
+                  v-text="$dateFns.format(new Date(work.release), 'yyyy.MM.dd')"
+                />
+              </p>
+            </div>
+          </nuxt-link>
+        </li>
+      </ol>
+      <!-- <ol class="row works">
         <li class="works__item">
           <nuxt-link to="/works/111" class="works__inner">
             <figure class="works__image">
@@ -35,7 +58,7 @@
             </div>
           </nuxt-link>
         </li>
-      </ol>
+      </ol> -->
     </div>
   </div>
 </template>
@@ -98,3 +121,16 @@
   }
 }
 </style>
+
+<script>
+export default {
+  async asyncData({ $microcms }) {
+    const works = await $microcms.get({
+      endpoint: 'works',
+    })
+    return {
+      works,
+    }
+  },
+}
+</script>
