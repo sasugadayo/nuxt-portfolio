@@ -36,7 +36,6 @@ export default {
     '@nuxtjs/stylelint-module',
     '@nuxtjs/style-resources',
     '@nuxtjs/date-fns',
-    '@nuxtjs/axios',
   ],
 
   styleResources: {
