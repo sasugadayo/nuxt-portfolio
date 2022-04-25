@@ -21,11 +21,11 @@ exports.handler = function(event, context, callback) {
     auth    : auth
   };
 
-  const transporter = nodemailer.createTransport(transport);
+  let transporter = nodemailer.createTransport(transport);
 
   const url = 'https://peaceful-longma-729436.netlify.app/';
 
-  const mailOptions = {
+  let mailOptions = {
     from    : `notes by SHARESL <info@sharesl.net>`,
     to      : `${useremail}`,
     subject : '【notes by SHARESL】お問い合わせありがとうございます',
