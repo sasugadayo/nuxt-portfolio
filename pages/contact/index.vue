@@ -127,10 +127,7 @@
         </div>
 
         <label for="privacy">プライバシーポリシー</label>
-        <validation-provider
-          rules="required:allowFalse:false"
-          name="プライバシーポリシー"
-        >
+        <validation-provider rules="required:allowFalse:false">
           <input
             id="privacy"
             v-model="privacy"
