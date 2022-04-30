@@ -20,6 +20,7 @@ extend('max', max)
 // カタカナのみ
 extend('katakana', {
   message: (field) => { return field + "は全角カタカナのみ使用できます" },
+  private: (field) => { return field + "にチェックを入れてください" },
   validate: (value) => { return /^[ァ-ン]+$/.test(value) }
 })
 

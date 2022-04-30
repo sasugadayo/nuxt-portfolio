@@ -127,13 +127,15 @@
         </div>
 
         <label for="privacy">プライバシーポリシー</label>
-        <validation-provider rules="required:allowFalse:false">
+        <validation-provider
+          :rules="{ required: { allowFalse: false } }"
+          name="プライバシーポリシー"
+        >
           <input
             id="privacy"
             v-model="privacy"
             type="checkbox"
             name="privacy"
-            autocomplete="checkboxz"
           />
         </validation-provider>
       </div>
@@ -185,7 +187,7 @@ export default {
       params.append('katakana', this.katakana)
       params.append('useremail', this.useremail)
       params.append('message', this.message)
-      // params.append('privacy', this.privacy)
+      params.append('privacy', this.privacy)
       if (this.botField) {
         params.append('bot-field', this.botField)
       }
