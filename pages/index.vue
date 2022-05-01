@@ -17,9 +17,16 @@
       </picture>
     </div>
 
+    <section id="skill">
+      <div>
+        <h2>My skill</h2>
+        <BarChart :chartdata="chartdata" options="options" />
+      </div>
+    </section>
+
     <section id="about" class="sectionPrimary">
       <div class="container">
-        <h2 class="headingPrimary">about</h2>
+        <h2 class="headingPrimary">about me</h2>
         <div class="profile">
           <div class="profile__upper">
             <div class="profile__text">
@@ -113,6 +120,56 @@
     </section>
   </div>
 </template>
+
+<script>
+import BarChart from '@/components/BarChart.vue'
+import Data from '@/data/bar.json'
+
+export default {
+  components: {
+    BarChart,
+  },
+  async asyncData({ $microcms }) {
+    const settings = await $microcms.get({
+      endpoint: 'settings',
+    })
+
+    const works = await $microcms.get({
+      endpoint: 'works',
+      queries: { limit: 2 },
+    })
+    return {
+      settings,
+      works,
+    }
+  },
+  data() {
+    return {
+      chartdata: {
+        labels: Data.data.map((data) => data.subject),
+        datasets: [
+          {
+            label: ['Data One'],
+            backgroundColor: '#00FF00',
+            data: Data.data.map((data) => data.rate),
+          },
+        ],
+        // options: {
+        //   scales: {
+        //     yAxes: [
+        //       {
+        //         ticks: {
+        //           min: 2,
+        //         },
+        //       },
+        //     ],
+        //   },
+        // },
+      },
+    }
+  },
+}
+</script>
 
 <style lang="scss" scoped>
 .mainVisual {
@@ -239,22 +296,3 @@
   }
 }
 </style>
-
-<script>
-export default {
-  async asyncData({ $microcms }) {
-    const settings = await $microcms.get({
-      endpoint: 'settings',
-    })
-
-    const works = await $microcms.get({
-      endpoint: 'works',
-      queries: { limit: 2 },
-    })
-    return {
-      settings,
-      works,
-    }
-  },
-}
-</script>

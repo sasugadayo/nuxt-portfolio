@@ -1,0 +1,101 @@
+
+{
+  "data": [
+      {
+          "subject": "HTML",
+          "rate": "5"
+      },
+      {
+          "subject": "CSS",
+          "rate": "5"
+      },
+      {
+          "subject": "JavaScript",
+          "rate": "4"
+      },
+      {
+        "subject": "php",
+        "rate": "4"
+      },
+      {
+        "subject": "symfony",
+        "rate": "4"
+      },
+      {
+        "subject": "Laravel",
+        "rate": "3"
+      },
+      {
+        "subject": "Firebase",
+        "rate": "2"
+      },
+      {
+        "subject": "MySQL",
+        "rate": "2"
+      },
+      {
+        "subject": "Sass",
+        "rate": "4"
+      },
+      {
+        "subject": "JQuery",
+        "rate": "4"
+      },
+      {
+        "subject": "Ruby / Ruby on Rails",
+        "rate": "2"
+      },
+      {
+        "subject": "Git / GitHub",
+        "rate": "4"
+      },
+      {
+        "subject": "AWS",
+        "rate": "2"
+      },
+      {
+        "subject": "Vue.js / Nuxt.js",
+        "rate": "3"
+      },
+      {
+        "subject": "React / Next.js",
+        "rate": "1"
+      },
+      {
+        "subject": "WordPress",
+        "rate": "2"
+      },
+      {
+        "subject": "Movable Type",
+        "rate": "3"
+      },
+      {
+        "subject": "gulp",
+        "rate": "3"
+      },
+      {
+        "subject": "figma",
+        "rate": "4"
+      },
+      {
+        "subject": "Adove XD",
+        "rate": "4"
+      },
+      {
+        "subject": "Adove Photoshop",
+        "rate": "3"
+      },
+      {
+        "subject": "Adove Illustrator",
+        "rate": "3"
+      },
+      {
+        "subject": "Docker",
+        "rate": "1"
+      },
+      {
+        "subject": "Linux",
+        "rate": "3"
+      }
+  ]
+}

@@ -1,6 +1,6 @@
 <template>
   <header class="header">
-    <div class="headerContainer">
+    <div class="header-container">
       <!-- ロゴ -->
       <component :is="isTopPage ? 'h1' : 'p'" class="logo">
         <nuxt-link to="/">My Portfolio</nuxt-link>
@@ -40,7 +40,7 @@ export default {
   background-color: $base-color-primary;
 }
 
-.headerContainer {
+.header-container {
   padding: 0 1.5em;
   display: flex;
   justify-content: space-between;
