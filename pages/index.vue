@@ -20,7 +20,7 @@
     <section id="skill">
       <div>
         <h2>My skill</h2>
-        <BarChart :chartdata="chartdata" options="options" />
+        <BarChart :chartdata="chartdata" :options="options" />
       </div>
     </section>
 
@@ -154,17 +154,19 @@ export default {
             data: Data.data.map((data) => data.rate),
           },
         ],
-        // options: {
-        //   scales: {
-        //     yAxes: [
-        //       {
-        //         ticks: {
-        //           min: 2,
-        //         },
-        //       },
-        //     ],
-        //   },
-        // },
+      },
+      options: {
+        scales: {
+          yAxes: [
+            {
+              ticks: {
+                beginAtZero: true,
+                min: 0,
+                max: 5,
+              },
+            },
+          ],
+        },
       },
     }
   },
