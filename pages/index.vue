@@ -1,26 +1,54 @@
 <template>
   <div>
-    <div class="mainVisual">
-      <picture>
-        <source
-          :width="settings.mainVisualSp.width"
-          :height="settings.mainVisualSp.height"
-          :srcset="settings.mainVisualSp.url"
-          media="(max-width: 767px)"
-        />
-        <img
-          :width="settings.mainVisualPc.width"
-          :height="settings.mainVisualPc.height"
-          :src="settings.mainVisualPc.url"
-          alt=""
-        />
-      </picture>
+    <div class="main">
+      <div class="mainVisual hero">
+        <div class="text-wrapper">
+          <span class="letters">a</span>
+          <span class="letters">&nbsp;</span>
+          <span class="letters">d</span>
+          <span class="letters">e</span>
+          <span class="letters">l</span>
+          <span class="letters">e</span>
+          <span class="letters">c</span>
+          <span class="letters">t</span>
+          <span class="letters">a</span>
+          <span class="letters">b</span>
+          <span class="letters">l</span>
+          <span class="letters">e</span>
+          <span class="letters">&nbsp;</span>
+          <span class="letters">j</span>
+          <span class="letters">o</span>
+          <span class="letters">u</span>
+          <span class="letters">r</span>
+          <span class="letters">n</span>
+          <span class="letters">e</span>
+          <span class="letters">y</span>
+        </div>
+        <picture>
+          <source
+            :width="settings.mainVisualSp.width"
+            :height="settings.mainVisualSp.height"
+            :srcset="settings.mainVisualSp.url"
+            media="(max-width: 767px)"
+          />
+          <img
+            :width="settings.mainVisualPc.width"
+            :height="settings.mainVisualPc.height"
+            :src="settings.mainVisualPc.url"
+            alt=""
+          />
+        </picture>
+      </div>
     </div>
+
+    <div class="overlay"></div>
 
     <section id="skill">
       <div>
         <h2>My skill</h2>
-        <BarChart :chartdata="chartdata" :options="options" />
+        <div class="chart-wrapper">
+          <BarChart :chartdata="chartdata" :options="options" />
+        </div>
       </div>
     </section>
 
@@ -122,12 +150,16 @@
 </template>
 
 <script>
+import { TimelineMax, Power2 } from 'gsap'
 import BarChart from '@/components/BarChart.vue'
 import Data from '@/data/bar.json'
+// import { gsap } from 'gsap'
+// import { TweenMax } from 'gsap'
 
 export default {
   components: {
     BarChart,
+    // gsap,
   },
   async asyncData({ $microcms }) {
     const settings = await $microcms.get({
@@ -170,6 +202,54 @@ export default {
       },
     }
   },
+
+  mounted() {
+    const timeline = new TimelineMax()
+    timeline
+      .fromTo(
+        '.hero',
+        1,
+        { height: '0%' },
+        { height: '80%', ease: Power2.easeInOut }
+      )
+      .addLabel('up')
+      .fromTo(
+        '.hero',
+        1,
+        { width: '100%' },
+        { width: '70%', ease: Power2.easeInOut },
+        'up+=0.2'
+      )
+      .fromTo(
+        '.overlay',
+        1,
+        { x: '-100%' },
+        { x: '0%', ease: Power2.easeInOut },
+        'up+=0.2'
+      )
+      .fromTo(
+        '.header-title',
+        0.5,
+        { opacity: 0, y: -10 },
+        { opacity: 1, y: 0, ease: 'back.out(1.7)' },
+        'up+=0.5'
+      )
+      .fromTo(
+        '.sns',
+        0.5,
+        { opacity: 0, x: 10 },
+        { opacity: 1, x: 0, ease: Power2.easeInOut },
+        'up+=0.8'
+      )
+      .staggerFromTo(
+        '.letters',
+        0.5,
+        { x: '1em', y: '1.2em', rotateZ: 180 },
+        { x: 0, y: 0, rotateZ: 0, ease: Power2.easeInOut },
+        0.05,
+        'up+=0.2'
+      )
+  },
 }
 </script>
 
@@ -179,7 +259,10 @@ export default {
     width: 100%;
   }
 }
-
+// .chart-wrapper {
+//   width: 50vw;
+//   height: 50vh;
+// }
 .profile {
   &__upper {
     display: flex;
@@ -296,5 +379,47 @@ export default {
   &__date {
     font-size: fz(14);
   }
+}
+
+.main {
+  height: 80vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero {
+  position: relative;
+}
+
+.hero img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.text-wrapper {
+  position: absolute;
+  top: 40%;
+  left: -10%;
+  color: #ffc288;
+  font-size: 48px;
+  text-transform: uppercase;
+  overflow: hidden;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-image: linear-gradient(135deg, #fdfcfb 0%, #e2d1c3 100%);
+  z-index: -1;
+}
+
+.letters {
+  display: inline-block;
 }
 </style>
