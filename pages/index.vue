@@ -150,11 +150,10 @@
 </template>
 
 <script>
-import { TimelineMax, Power2 } from 'gsap'
+// import { TimelineMax, Power2 } from 'gsap'
+import { gsap } from 'gsap'
 import BarChart from '@/components/BarChart.vue'
 import Data from '@/data/bar.json'
-// import { gsap } from 'gsap'
-// import { TweenMax } from 'gsap'
 
 export default {
   components: {
@@ -204,29 +203,17 @@ export default {
   },
 
   mounted() {
-    const timeline = new TimelineMax()
-    timeline
-      .fromTo(
-        '.hero',
-        1,
-        { height: '0%' },
-        { height: '80%', ease: Power2.easeInOut }
-      )
+    // const timeline = new TimelineMax()
+    // var timeline = gsap.timeline({ ease: 'power2.out', duration: 1 })
+    // timeline
+    gsap
+      .timeline({
+        defaults: { ease: 'Power2.easeInOut', duration: 1 }, // timelineのプロパティ
+      })
+      .fromTo('.hero', 1, { height: '0%' }, { height: '80%' })
       .addLabel('up')
-      .fromTo(
-        '.hero',
-        1,
-        { width: '100%' },
-        { width: '70%', ease: Power2.easeInOut },
-        'up+=0.2'
-      )
-      .fromTo(
-        '.overlay',
-        1,
-        { x: '-100%' },
-        { x: '0%', ease: Power2.easeInOut },
-        'up+=0.2'
-      )
+      .fromTo('.hero', 1, { width: '100%' }, { width: '70%' }, 'up+=0.2')
+      .fromTo('.overlay', 1, { x: '-100%' }, { x: '0%' }, 'up+=0.2')
       .fromTo(
         '.header-title',
         0.5,
@@ -238,14 +225,14 @@ export default {
         '.sns',
         0.5,
         { opacity: 0, x: 10 },
-        { opacity: 1, x: 0, ease: Power2.easeInOut },
+        { opacity: 1, x: 0 },
         'up+=0.8'
       )
       .staggerFromTo(
         '.letters',
         0.5,
         { x: '1em', y: '1.2em', rotateZ: 180 },
-        { x: 0, y: 0, rotateZ: 0, ease: Power2.easeInOut },
+        { x: 0, y: 0, rotateZ: 0 },
         0.05,
         'up+=0.2'
       )
