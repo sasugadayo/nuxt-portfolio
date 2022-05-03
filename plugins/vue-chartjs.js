@@ -12,17 +12,6 @@ Vue.component('BarChart', {
       default:() => ({
         responsive: true,
         maintainAspectRatio: false,
-        // scales: {
-        //   yAxes: [
-        //     {
-        //       ticks: {
-        //         beginAtZero: true,
-        //         min: 0,
-        //         max: 100
-        //       }
-        //     }
-        //   ]
-        // }
       })
   	}
   },

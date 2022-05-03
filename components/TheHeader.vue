@@ -1,19 +1,29 @@
 <template>
-  <header class="header">
-    <div class="header-container">
+  <header class="p-header">
+    <div class="p-header-container">
       <!-- ロゴ -->
-      <component :is="isTopPage ? 'h1' : 'p'" class="logo">
+      <component :is="isTopPage ? 'h1' : 'p'" class="p-header-title">
         <nuxt-link to="/">My Portfolio</nuxt-link>
       </component>
 
       <!-- メニュー -->
       <nav>
-        <ul class="menu">
-          <li>
-            <nuxt-link to="/#about" class="menu__link">about</nuxt-link>
+        <ul class="p-menu__list">
+          <li class="p-menu__item">
+            <nuxt-link to="/#about" class="p-menu__item-link">about</nuxt-link>
           </li>
-          <li>
-            <nuxt-link to="/works" class="menu__link">works</nuxt-link>
+          <li class="p-menu__item">
+            <nuxt-link to="/#skill" class="p-menu__item-link"
+              >my skills</nuxt-link
+            >
+          </li>
+          <li class="p-menu__item">
+            <nuxt-link to="/works" class="p-menu__item-link">works</nuxt-link>
+          </li>
+          <li class="p-menu__item">
+            <nuxt-link to="/contact" class="p-menu__item-link"
+              >contact</nuxt-link
+            >
           </li>
         </ul>
       </nav>
@@ -34,13 +44,13 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.header {
+.p-header {
   width: 100%;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
   background-color: $base-color-primary;
 }
 
-.header-container {
+.p-header-container {
   padding: 0 1.5em;
   display: flex;
   justify-content: space-between;
@@ -51,7 +61,7 @@ export default {
   }
 }
 
-.logo {
+.p-header-title {
   color: $text-color-primary;
   font-family: $font-ubuntu;
   font-size: fz(18);
@@ -63,40 +73,39 @@ export default {
   }
 }
 
-.menu {
+.p-menu__list {
   list-style: none;
   display: flex;
   margin-right: -0.75em;
+}
+.p-menu__item-link {
+  font-family: $font-ubuntu;
+  font-weight: bold;
+  text-transform: capitalize;
+  line-height: 64px;
+  display: inline-block;
+  padding: 0 0.25em;
+  position: relative;
 
-  &__link {
-    font-family: $font-ubuntu;
-    font-weight: bold;
-    text-transform: capitalize;
-    line-height: 64px;
-    display: inline-block;
-    padding: 0 0.25em;
-    position: relative;
+  @include mq() {
+    padding: 0 0.75em;
+  }
 
-    @include mq() {
-      padding: 0 0.75em;
-    }
+  &::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background-color: $key-color-black;
+    transition: all 0.3s ease-in-out;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+  }
 
+  &:hover {
     &::after {
-      content: '';
-      display: block;
-      width: 0;
-      height: 2px;
-      background-color: $key-color-black;
-      transition: all 0.3s ease-in-out;
-      position: absolute;
-      left: 0;
-      bottom: 0;
-    }
-
-    &:hover {
-      &::after {
-        width: 100%;
-      }
+      width: 100%;
     }
   }
 }

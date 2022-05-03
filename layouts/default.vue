@@ -1,7 +1,7 @@
 <template>
-  <div class="wrapper">
-    <TheHeader class="header" />
-    <main class="main">
+  <div class="l-wrapper">
+    <TheHeader class="l-header" />
+    <main class="l-main">
       <Nuxt />
     </main>
     <TheFooter />
@@ -9,18 +9,18 @@
 </template>
 
 <style lang="scss" scoped>
-.wrapper {
+.l-wrapper {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
 }
 
-.header {
+.l-header {
   position: fixed;
   z-index: 100;
 }
 
-.main {
+.l-main {
   flex: 1;
   overflow-x: hidden;
   padding-top: 4em;
