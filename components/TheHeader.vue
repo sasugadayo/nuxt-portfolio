@@ -3,7 +3,7 @@
     <div class="p-header-container">
       <!-- ロゴ -->
       <component :is="isTopPage ? 'h1' : 'p'" class="p-header-title">
-        <nuxt-link to="/">My Portfolio</nuxt-link>
+        <nuxt-link to="/">SASUGA's Portfolio</nuxt-link>
       </component>
 
       <!-- メニュー -->
@@ -58,7 +58,8 @@ export default {
 .p-header {
   width: 100%;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-  background-color: $base-color-primary;
+  background-color: #000;
+  color: $text-color-secondary;
 }
 
 .p-header-container {
@@ -74,7 +75,6 @@ export default {
 }
 
 .p-header-title {
-  color: $text-color-primary;
   font-family: $font-ubuntu;
   font-size: fz(18);
   font-weight: bold;

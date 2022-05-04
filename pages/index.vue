@@ -50,10 +50,10 @@
                 <span>{{ settings.name }}</span>
                 <span lang="en">{{ settings.nameEnglish }}</span>
               </p>
-              <dl class="profile__item">
+              <!-- <dl class="profile__item">
                 <dt class="profile__title">技術スタック</dt>
                 <dd>{{ settings.skills }}</dd>
-              </dl>
+              </dl> -->
               <dl class="profile__item">
                 <dt class="profile__title">趣味</dt>
                 <dd>{{ settings.hobby }}</dd>
@@ -242,6 +242,7 @@ export default {
 
   &__text {
     @include mq() {
+      width: 60%;
     }
   }
 

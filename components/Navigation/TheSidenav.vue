@@ -68,7 +68,7 @@ export default {
 .sidenav {
   height: 100%;
   width: 300px;
-  background-color: white;
+  background-color: rgba(0, 0, 0, 0.7);
   z-index: 10000;
   position: fixed;
   top: 0;
@@ -91,6 +91,8 @@ export default {
   list-style: none;
   padding: 0;
   margin: 0;
+  text-align: center;
+  margin-top: 50px;
 }
 
 .p-slide-menu {
@@ -98,7 +100,7 @@ export default {
     margin: 20px 0;
     a {
       text-decoration: none;
-      color: black;
+      color: #fff;
       font-size: 1.5rem;
 
       &:hover,
@@ -124,7 +126,7 @@ export default {
 
 .bar {
   height: 2px;
-  background: black;
+  background: #fff;
   transition: all 0.3s ease-in-out 0.5s;
 }
 

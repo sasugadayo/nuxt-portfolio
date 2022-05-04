@@ -9,7 +9,8 @@
 <style lang="scss" scoped>
 .footer {
   padding: 1em 0;
-  background-color: $base-color-secondary;
+  background-color: #000;
+  color: $text-color-secondary;
 }
 
 .copyright {

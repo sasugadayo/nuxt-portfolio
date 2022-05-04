@@ -31,37 +31,22 @@
           </nuxt-link>
         </li>
       </ol>
-      <!-- <ol class="row works">
-        <li class="works__item">
-          <nuxt-link to="/works/111" class="works__inner">
-            <figure class="works__image">
-              <img src="https://placehold.jp/370x229.png" alt="" />
-            </figure>
-            <div class="works__text">
-              <p class="works__name">作品名</p>
-              <p class="works__date">
-                <time datetime="2021-12-16">2021.12.16</time>
-              </p>
-            </div>
-          </nuxt-link>
-        </li>
-        <li class="works__item">
-          <nuxt-link to="#!" class="works__inner">
-            <figure class="works__image">
-              <img src="https://placehold.jp/370x229.png" alt="" />
-            </figure>
-            <div class="works__text">
-              <p class="works__name">作品名</p>
-              <p class="works__date">
-                <time datetime="2021-12-16">2021.12.16</time>
-              </p>
-            </div>
-          </nuxt-link>
-        </li>
-      </ol> -->
     </div>
   </div>
 </template>
+
+<script>
+export default {
+  async asyncData({ $microcms }) {
+    const works = await $microcms.get({
+      endpoint: 'works',
+    })
+    return {
+      works,
+    }
+  },
+}
+</script>
 
 <style lang="scss" scoped>
 .childMainVisual {
@@ -121,16 +106,3 @@
   }
 }
 </style>
-
-<script>
-export default {
-  async asyncData({ $microcms }) {
-    const works = await $microcms.get({
-      endpoint: 'works',
-    })
-    return {
-      works,
-    }
-  },
-}
-</script>
