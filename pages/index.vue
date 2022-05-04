@@ -50,6 +50,18 @@
                 <span>{{ settings.name }}</span>
                 <span lang="en">{{ settings.nameEnglish }}</span>
               </p>
+              <a
+                class="profile__github-link"
+                href="https://github.com/sasugadayo"
+              >
+                <img
+                  class="profile__github-image"
+                  src="@/assets/icon/github-icon.png"
+                  alt="github"
+                  width="40px"
+                  height="40px"
+                />
+              </a>
               <!-- <dl class="profile__item">
                 <dt class="profile__title">技術スタック</dt>
                 <dd>{{ settings.skills }}</dd>
@@ -250,6 +262,7 @@ export default {
     font-size: fz(24);
     font-weight: bold;
     margin-bottom: 0.5em;
+    display: inline-block;
 
     @include mq() {
       font-size: fz(28);
@@ -264,6 +277,17 @@ export default {
         margin: 0 0.5em;
       }
     }
+  }
+
+  &__github-link {
+    display: inline-block;
+    margin-left: 0.5em;
+    margin-bottom: 0.5em;
+  }
+
+  &__github-image {
+    vertical-align: bottom;
+    width: 35px;
   }
 
   &__item {

@@ -1,7 +1,7 @@
 <template>
   <div class="p-contact">
     <div class="p-contact__main-visual">
-      <h1 class="p-contact__main-visual-title">CONTACT</h1>
+      <h1 class="p-contact__main-visual-title">Contact</h1>
       <p>
         このサイトの情報等に関してのお問い合わせはこちらからお願いいたします。<br />
         お問い合わせ内容によってはお返事できかねる場合がありますので、あらかじめご了承ください。
@@ -375,14 +375,24 @@ h3 {
       width: 80%;
     }
   }
-}
 
-.p-contact__item {
-  margin-bottom: 20px;
-}
+  &__item {
+    margin-bottom: 20px;
+  }
 
-.p-contact__error {
-  color: red;
+  &__error {
+    color: red;
+  }
+
+  &__submit-button {
+    margin: 0 auto;
+    display: block;
+    height: 50px;
+    width: 200px;
+    background-color: springgreen;
+    border-radius: 10px;
+    color: #000;
+  }
 }
 
 .p-privacy-policy {
@@ -396,32 +406,22 @@ h3 {
   color: #505050;
   border: 1px #ccc solid;
   text-align: left;
-}
 
-.p-privacy-policy__agreement {
-  text-align: center;
-  margin-top: 10px;
+  &__agreement {
+    text-align: center;
+    margin-top: 10px;
 
-  &-checkbox {
-    vertical-align: middle;
+    &-checkbox {
+      vertical-align: middle;
+    }
+
+    &__list {
+      text-emphasis: none;
+    }
+
+    &-text {
+      font-weight: bold;
+    }
   }
-
-  &__list {
-    text-emphasis: none;
-  }
-
-  &-text {
-    font-weight: bold;
-  }
-}
-
-.p-contact__submit-button {
-  margin: 0 auto;
-  display: block;
-  height: 50px;
-  width: 200px;
-  background-color: springgreen;
-  border-radius: 10px;
-  color: #000;
 }
 </style>
