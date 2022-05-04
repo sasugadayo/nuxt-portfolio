@@ -76,7 +76,10 @@
     <section id="skill">
       <div>
         <h2 class="headingPrimary">My skill</h2>
-        <div class="chart-wrapper">
+        <div
+          class="chart-wrapper"
+          style="position: relative; width: 100%; height: 400px"
+        >
           <BarChart :chartdata="chartdata" :options="options" />
         </div>
       </div>
@@ -160,6 +163,7 @@ export default {
         ],
       },
       options: {
+        maintainAspectRatio: false,
         scales: {
           yAxes: [
             {

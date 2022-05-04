@@ -10,8 +10,16 @@
           "rate": "5"
       },
       {
+        "subject": "Sass",
+        "rate": "4"
+      },
+      {
           "subject": "JavaScript",
           "rate": "4"
+      },
+      {
+        "subject": "JQuery",
+        "rate": "4"
       },
       {
         "subject": "php",
@@ -26,34 +34,6 @@
         "rate": "3"
       },
       {
-        "subject": "Firebase",
-        "rate": "2"
-      },
-      {
-        "subject": "MySQL",
-        "rate": "2"
-      },
-      {
-        "subject": "Sass",
-        "rate": "4"
-      },
-      {
-        "subject": "JQuery",
-        "rate": "4"
-      },
-      {
-        "subject": "Ruby / Ruby on Rails",
-        "rate": "2"
-      },
-      {
-        "subject": "Git / GitHub",
-        "rate": "4"
-      },
-      {
-        "subject": "AWS",
-        "rate": "2"
-      },
-      {
         "subject": "Vue.js / Nuxt.js",
         "rate": "3"
       },
@@ -62,15 +42,43 @@
         "rate": "1"
       },
       {
-        "subject": "WordPress",
+        "subject": "Ruby / Ruby on Rails",
         "rate": "2"
+      },
+      {
+        "subject": "gulp",
+        "rate": "3"
+      },
+      {
+        "subject": "Docker",
+        "rate": "1"
+      },
+      {
+        "subject": "WordPress",
+        "rate": "3"
       },
       {
         "subject": "Movable Type",
         "rate": "3"
       },
       {
-        "subject": "gulp",
+        "subject": "Git / GitHub",
+        "rate": "4"
+      },
+      {
+        "subject": "Firebase",
+        "rate": "2"
+      },
+      {
+        "subject": "AWS",
+        "rate": "1"
+      },
+      {
+        "subject": "MySQL",
+        "rate": "2"
+      },
+      {
+        "subject": "Linux",
         "rate": "3"
       },
       {
@@ -87,14 +95,6 @@
       },
       {
         "subject": "Adove Illustrator",
-        "rate": "3"
-      },
-      {
-        "subject": "Docker",
-        "rate": "1"
-      },
-      {
-        "subject": "Linux",
         "rate": "3"
       }
   ]

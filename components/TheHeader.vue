@@ -7,7 +7,7 @@
       </component>
 
       <!-- メニュー -->
-      <nav>
+      <nav class="p-menu">
         <ul class="p-menu__list">
           <li class="p-menu__item">
             <nuxt-link to="/#about" class="p-menu__item-link">about</nuxt-link>
@@ -27,12 +27,23 @@
           </li>
         </ul>
       </nav>
+
+      <TheSideNavToggle @toggle="$emit('sidenavToggle')" />
     </div>
   </header>
 </template>
 
 <script>
+import TheSideNavToggle from '@/components/Navigation/TheSideNavToggle'
 export default {
+  components: {
+    TheSideNavToggle,
+  },
+  data() {
+    return {
+      displaySidenav: false,
+    }
+  },
   computed: {
     // TOPページかどうか
     isTopPage() {
@@ -51,6 +62,7 @@ export default {
 }
 
 .p-header-container {
+  height: 64px;
   padding: 0 1.5em;
   display: flex;
   justify-content: space-between;
@@ -86,7 +98,11 @@ export default {
   display: inline-block;
   padding: 0 0.25em;
   position: relative;
+  // font-size: 13px;
 
+  @include mq(sm) {
+    font-size: 16px;
+  }
   @include mq() {
     padding: 0 0.75em;
   }
@@ -107,6 +123,11 @@ export default {
     &::after {
       width: 100%;
     }
+  }
+}
+.p-menu {
+  @include mq(sm, max) {
+    display: none;
   }
 }
 </style>
