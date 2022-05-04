@@ -24,6 +24,7 @@
           <input
             id="username"
             v-model="username"
+            class="c-input-text"
             type="text"
             name="username"
             autocomplete="name"
@@ -31,7 +32,6 @@
           <p v-show="errors.length" class="p-contact__error">{{ errors[0] }}</p>
         </validation-provider>
       </div>
-      <!-- /.p-contact__item -->
 
       <div class="p-contact__item">
         <label for="katakana">フリガナ</label>
@@ -40,11 +40,16 @@
           rules="required|katakana"
           name="フリガナ"
         >
-          <input id="katakana" v-model="katakana" type="text" name="katakana" />
+          <input
+            id="katakana"
+            v-model="katakana"
+            class="c-input-text"
+            type="text"
+            name="katakana"
+          />
           <p v-show="errors.length" class="p-contact__error">{{ errors[0] }}</p>
         </validation-provider>
       </div>
-      <!-- /.p-contact__item -->
 
       <div class="p-contact__item">
         <label for="useremail">メールアドレス</label>
@@ -56,6 +61,7 @@
           <input
             id="useremail"
             v-model="useremail"
+            class="c-input-text"
             type="text"
             name="useremail"
             autocomplete="email"
@@ -63,7 +69,6 @@
           <p v-show="errors.length" class="p-contact__error">{{ errors[0] }}</p>
         </validation-provider>
       </div>
-      <!-- /.p-contact__item -->
 
       <div class="p-contact__item">
         <label for="message">お問い合わせ内容</label>
@@ -72,72 +77,150 @@
           rules="required|max:1000"
           name="お問い合わせ内容"
         >
-          <textarea id="message" v-model="message" name="message"></textarea>
+          <textarea
+            id="message"
+            v-model="message"
+            class="c-input-text p-contact__item-textarea"
+            name="message"
+          ></textarea>
           <p v-show="errors.length" class="p-contact__error">{{ errors[0] }}</p>
         </validation-provider>
       </div>
-      <!-- /.p-contact__item -->
 
       <div v-show="false" class="p-contact__item">
         <label for="message">スパムでない場合は空欄</label>
         <input v-model="botField" type="text" name="bot-field" />
       </div>
-      <!-- /.p-contact__item -->
 
       <div class="p-contact__item">
-        <div class="">
-          <h3>本サイトは、山口流石が運営するポートフォリオサイトです。</h3>
-          <h4>個人情報保護方針</h4>
+        <label for="privacy">プライバシーポリシー</label>
+        <div class="p-privacy-policy">
           <p>
-            当社は、以下のとおり個人情報保護方針を定め、個人情報保護の仕組みを構築し、全従業員に個人情報保護の重要性の認識と取組みを徹底させることにより、個人情報の保護を推進致します。
+            当サイトは、個人情報の重要性を認識し、個人情報を保護することが社会的責務であると考え、個人情報に関する法令を遵守し、当サイトで取扱う個人情報の取得、利用、管理を適正に行います。
           </p>
-          <h4>個人情報の管理</h4>
+
+          <h3>適用範囲</h3>
           <p>
-            当社は、お客さまの個人情報を正確かつ最新の状態に保ち、個人情報への不正アクセス・紛失・破損・改ざん・漏洩などを防止するため、セキュリティシステムの維持・管理体制の整備・社員教育の徹底等の必要な措置を講じ、安全対策を実施し個人情報の厳重な管理を行ないます。
+            本プライバシーポリシーは、お客様の個人情報もしくはそれに準ずる情報を取り扱う際に、当サイトが遵守する方針を示したものです。
           </p>
-          <h4>個人情報の利用目的</h4>
+
+          <h3>個人情報の利用目的</h3>
           <p>
-            本ウェブサイトでは、お客様からのお問い合わせ時に、お名前、e-mailアドレス、電話番号等の個人情報をご登録いただく場合がございますが、これらの個人情報はご提供いただく際の目的以外では利用いたしません。
-            お客さまからお預かりした個人情報は、当社からのご連絡や業務のご案内やご質問に対する回答として、電子メールや資料のご送付に利用いたします。
+            当サイトは、お客様からご提供いただく情報を以下の目的の範囲内において利用します。
           </p>
-          <h4>個人情報の第三者への開示・提供の禁止</h4>
-          <p>
-            当社は、お客さまよりお預かりした個人情報を適切に管理し、次のいずれかに該当する場合を除き、個人情報を第三者に開示いたしません。
-          </p>
-          <ul>
-            <li>・お客さまの同意がある場合</li>
+
+          <ul class="p-privacy-policy__list">
+            <li>ご本人確認のため</li>
+            <li>お問い合わせ、コメント等の確認・回答のため</li>
+            <li>メールマガジン・DM・各種お知らせ等の配信・送付のため</li>
             <li>
-              ・お客さまが希望されるサービスを行なうために当社が業務を委託する業者に対して開示する場合
+              お客さまの承諾・申込みに基づく、提携事業者・団体等への個人情報の提供のため
             </li>
+            <li>利用規約等で禁じている行為などの調査のため</li>
+            <li>その他個別に承諾いただいた目的</li>
+          </ul>
+
+          <h3>個人情報の管理</h3>
+          <p>
+            当サイトは、個人情報の正確性及び安全確保のために、セキュリティ対策を徹底し、個人情報の漏洩、改ざん、不正アクセスなどの危険については、必要かつ適切なレベルの安全対策を実施します。
+          </p>
+          <p>
+            当サイトは、第三者に重要な情報を読み取られたり、改ざんされたりすることを防ぐために、SSLによる暗号化を使用しております。
+          </p>
+
+          <h3>個人情報の第三者提供</h3>
+          <p>
+            当サイトは、以下を含む正当な理由がある場合を除き、個人情報を第三者に提供することはありません。
+          </p>
+
+          <ul class="p-privacy-policy__list">
+            <li>ご本人の同意がある場合</li>
+            <li>法令に基づく場合</li>
+            <li>人の生命・身体・財産の保護に必要な場合</li>
+            <li>公衆衛生・児童の健全育成に必要な場合</li>
             <li>
-              ・法令に基づき開示することが必要である場合 個人情報の安全対策
+              国の機関等の法令の定める事務への協力の場合（税務調査、統計調査等）
             </li>
           </ul>
           <p>
-            当社は、個人情報の正確性及び安全性確保のために、セキュリティに万全の対策を講じています。
+            当サイトでは、利用目的の達成に必要な範囲内において、他の事業者へ個人情報を委託することがあります。
           </p>
-          <h4>ご本人の照会</h4>
+
+          <h3>個人情報に関するお問い合わせ</h3>
           <p>
-            お客さまがご本人の個人情報の照会・修正・削除などをご希望される場合には、ご本人であることを確認の上、対応させていただきます。
+            開示、訂正、利用停止等のお申し出があった場合には、所定の方法に基づき対応致します。具体的な方法については、個別にご案内しますので、お問い合わせください。
           </p>
-          <h4>法令、規範の遵守と見直し</h4>
+
           <p>
-            当社は、保有する個人情報に関して適用される日本の法令、その他規範を遵守するとともに、本ポリシーの内容を適宜見直し、その改善に努めます。
+            なお、コメントが承認されると、プロフィール画像がコメントとともに一般公開されます。
+          </p>
+
+          <h3>他サイトからの埋め込みコンテンツ</h3>
+          <p>
+            当サイトには、埋め込みコンテンツ
+            （動画、画像、投稿など）が含まれます。他サイトからの埋め込みコンテンツは、訪問者がそのサイトを訪れた場合とまったく同じように振る舞います。
+          </p>
+          <p>
+            これらのサイトは、あなたのデータの収集、Cookie（クッキー）の使用、サードパーティによる追加トラッキングの埋め込み、埋め込みコンテンツとのやりとりの監視を行うことがあります。
+          </p>
+          <p>
+            アカウントを使ってそのサイトにログイン中の場合、埋め込みコンテンツとのやりとりのトラッキングも含まれます。
+          </p>
+
+          <h3>免責事項</h3>
+          <p>
+            当サイトのコンテンツ・情報について、可能な限り正確な情報を掲載するよう努めておりますが、正確性や安全性を保証するものではありません。当サイトに掲載された内容によって生じた損害等の一切の責任を負いかねますのでご了承ください。
+          </p>
+          <p>
+            当サイトからリンクやバナーなどによって他のサイトに移動した場合、移動先サイトで提供される情報、サービス等について一切の責任を負いません。
+          </p>
+          <p>
+            当サイトで掲載している料金表記について、予告なく変更されることがあります。
+          </p>
+
+          <h3>著作権・肖像権</h3>
+          <p>
+            当サイトで掲載しているすべてのコンテンツ（文章、画像、動画、音声、ファイル等）の著作権・肖像権等は当サイト所有者または各権利所有者が保有し、許可なく無断利用（転載、複製、譲渡、二次利用等）することを禁止します。また、コンテンツの内容を変形・変更・加筆修正することも一切認めておりません。
+          </p>
+          <p>
+            各権利所有者におかれましては、万一掲載内容に問題がございましたら、ご本人様よりお問い合わせください。迅速に対応いたします。
+          </p>
+
+          <h3>リンク</h3>
+          <p>
+            当サイトは原則リンクフリーです。リンクを行う場合の許可や連絡は不要です。引用する際は、引用元の明記と該当ページへのリンクをお願いします。
+          </p>
+          <p>
+            ただし、画像ファイルへの直リンク、インラインフレームを使用したHTMLページ内で表示する形でのリンクはご遠慮ください。
+          </p>
+
+          <h3>本プライバシーポリシーの変更</h3>
+          <p>
+            当サイトは、本プライバシーポリシーの内容を適宜見直し、その改善に努めます。
+          </p>
+          <p>
+            本プライバシーポリシーは、事前の予告なく変更することがあります。
+          </p>
+          <p>
+            本プライバシーポリシーの変更は、当サイトに掲載された時点で有効になるものとします。
           </p>
         </div>
 
-        <label for="privacy">プライバシーポリシー</label>
-        <validation-provider
-          :rules="{ required: { allowFalse: false } }"
-          name="プライバシーポリシー"
-        >
-          <input
-            id="privacy"
-            v-model="privacy"
-            type="checkbox"
-            name="privacy"
-          />
-        </validation-provider>
+        <div class="p-privacy-policy__agreement">
+          <validation-provider
+            :rules="{ required: { allowFalse: false } }"
+            name="プライバシーポリシー"
+          >
+            <input
+              id="privacy"
+              v-model="privacy"
+              class="p-privacy-policy__agreement-checkbox"
+              type="checkbox"
+              name="privacy"
+            />
+          </validation-provider>
+          <small>プライバシーポリシーに同意する</small>
+        </div>
       </div>
 
       <div class="p-contact__submit">
@@ -219,3 +302,75 @@ export default {
   },
 }
 </script>
+
+<style lang="scss" scoped>
+li {
+  list-style: none;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+h3 {
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+.c-input-text {
+  border: 1px solid #ccc;
+  min-width: 100%;
+  min-height: 50px;
+}
+
+.p-contact {
+  width: 80%;
+  margin: 0 auto;
+  &__form {
+    margin-top: 20px;
+  }
+}
+
+.p-contact__item {
+  margin-bottom: 20px;
+}
+
+.p-contact__error {
+  color: red;
+}
+
+.p-privacy-policy {
+  display: block;
+  padding: 15px;
+  height: 150px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  font-size: 12px;
+  line-height: 1.5;
+  color: #505050;
+  border: 1px #ccc solid;
+  text-align: left;
+}
+
+.p-privacy-policy__agreement {
+  text-align: center;
+  margin-top: 10px;
+
+  &-checkbox {
+    vertical-align: middle;
+  }
+
+  &__list {
+    text-emphasis: none;
+  }
+}
+
+.p-ocntact__submit-button {
+  margin: 0 auto;
+  display: block;
+  height: 50px;
+  width: 200px;
+  background-color: springgreen;
+  border-radius: 10px;
+}
+</style>

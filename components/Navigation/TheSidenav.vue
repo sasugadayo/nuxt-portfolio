@@ -6,7 +6,7 @@
     <transition name="slide-side">
       <!-- サイドナブ -->
       <div v-if="show" class="sidenav">
-        <div class="drawer-toggle" role="button" @click="$emit('close')">
+        <div class="p-drawer-toggle" role="button" @click="$emit('close')">
           <div class="bar"></div>
           <div class="bar"></div>
         </div>
@@ -117,6 +117,9 @@ export default {
   height: 35px;
   width: 35px;
   cursor: pointer;
+  position: absolute;
+  right: 32px;
+  top: 15px;
 }
 
 .bar {
