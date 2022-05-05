@@ -75,9 +75,7 @@
       </dl>
       <dl class="worksItem">
         <dt class="worksItem__title">アピールポイント</dt>
-        <dd class="worksItem__contents" style="white-space: pre-wrap">
-          {{ work.points }}
-        </dd>
+        <dd class="worksItem__contents">{{ work.points }}</dd>
       </dl>
     </div>
 
