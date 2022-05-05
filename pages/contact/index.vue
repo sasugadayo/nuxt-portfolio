@@ -268,6 +268,36 @@ export default {
       isSending: false,
       isError: false,
       completeMessage: '',
+      meta: {
+        title: 'contactページです',
+        description: "sasugada's portfolioのcontactページです",
+        type: 'article',
+        url: 'https://sasugadayo.netlify.app/contact',
+        image: '',
+      },
+      base: 'https://sasugadayo.netlify.app',
+    }
+  },
+  head() {
+    return {
+      title: this.meta.title,
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: this.meta.description,
+        },
+        {
+          hid: 'og:description',
+          property: 'og:description',
+          content: this.meta.description,
+        },
+        { hid: 'og:title', property: 'og:title', content: this.meta.title },
+        { hid: 'og:type', property: 'og:type', content: this.meta.type },
+        { hid: 'og:url', property: 'og:url', content: this.meta.url },
+        { hid: 'og:image', property: 'og:image', content: this.meta.image },
+        { name: 'twitter:title', content: this.meta.title },
+      ],
     }
   },
   computed: {
@@ -348,20 +378,22 @@ h3 {
   min-height: 50px;
 }
 
-.p-contact__main-visual {
-  text-align: center;
-  padding: 5em 0;
-  background-color: $base-color-secondary;
-  margin-bottom: 2.5em;
+.p-contact {
+  &__main-visual {
+    text-align: center;
+    padding: 5em 1em;
+    background-color: $base-color-secondary;
+    margin-bottom: 2.5em;
 
-  @include mq() {
-    margin-bottom: 5em;
-  }
+    @include mq() {
+      margin-bottom: 5em;
+    }
 
-  &-title {
-    font-family: $font-ubuntu;
-    font-size: fz(40);
-    margin-bottom: 0.25em;
+    &-title {
+      font-family: $font-ubuntu;
+      font-size: fz(40);
+      margin-bottom: 0.25em;
+    }
   }
 }
 

@@ -1,17 +1,22 @@
 <template>
-  <div class="sidenav-container">
+  <div class="p-sidenav-container">
     <!-- サイドバーのバックドロップ背景 -->
-    <div v-if="show" class="sidenav-backdrop" @click="$emit('close')"></div>
+    <div v-if="show" class="p-sidenav-backdrop" @click="$emit('close')"></div>
     <!-- トランジション -->
-    <transition name="slide-side">
+    <transition name="p-slide-side">
       <!-- サイドナブ -->
-      <div v-if="show" class="sidenav">
-        <div class="p-drawer-toggle" role="button" @click="$emit('close')">
-          <div class="bar"></div>
-          <div class="bar"></div>
+      <div v-if="show" class="p-sidenav">
+        <div
+          class="p-drawer-toggle"
+          role="button"
+          aria-label="close"
+          @click="$emit('close')"
+        >
+          <div class="p-bar"></div>
+          <div class="p-bar"></div>
         </div>
         <!-- ハンバーガーメニュー -->
-        <ul class="nav-list" @click="$emit('close')">
+        <ul class="p-nav-list" @click="$emit('close')">
           <li class="p-slide-menu__item">
             <nuxt-link to="/#about" class="p-slide-menu__item-link"
               >about</nuxt-link
@@ -51,12 +56,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.sidenav-container {
+.p-sidenav-container {
   height: 100%;
   width: 100%;
 }
 
-.sidenav-backdrop {
+.p-sidenav-backdrop {
   width: 100%;
   height: 100%;
   z-index: 1000;
@@ -65,7 +70,7 @@ export default {
   left: 0;
 }
 
-.sidenav {
+.p-sidenav {
   height: 100%;
   width: 300px;
   background-color: rgba(0, 0, 0, 0.7);
@@ -77,17 +82,17 @@ export default {
   padding: 30px;
 }
 
-.slide-side-enter-active,
-.slide-side-leave-active {
+.p-slide-side-enter-active,
+.p-slide-side-leave-active {
   transition: all 0.3s ease-out;
 }
 
-.slide-side-enter,
-.slide-side-leave-to {
+.p-slide-side-enter,
+.p-slide-side-leave-to {
   transform: translateX(100%);
 }
 
-.nav-list {
+.p-nav-list {
   list-style: none;
   padding: 0;
   margin: 0;
@@ -98,6 +103,7 @@ export default {
 .p-slide-menu {
   &__item {
     margin: 20px 0;
+
     a {
       text-decoration: none;
       color: #fff;
@@ -124,18 +130,18 @@ export default {
   top: 15px;
 }
 
-.bar {
+.p-bar {
   height: 2px;
   background: #fff;
   transition: all 0.3s ease-in-out 0.5s;
 }
 
-.bar:nth-child(1) {
+.p-bar:nth-child(1) {
   transform: rotate(135deg) translateY(-10px);
   transform-origin: bottom;
 }
 
-.bar:nth-child(2) {
+.p-bar:nth-child(2) {
   transform: rotate(-135deg) translateY(10px);
   transform-origin: top;
 }

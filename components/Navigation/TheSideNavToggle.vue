@@ -1,9 +1,9 @@
 <template>
   <!-- ハンバーガーメニュー -->
-  <div class="p-drawer-toggle" role="button" @click="$emit('toggle')">
-    <div class="bar"></div>
-    <div class="bar"></div>
-    <div class="bar"></div>
+  <div class="p-drawer-toggle" role="button" aria-label="open" @click="$emit('toggle')">
+    <div class="p-bar"></div>
+    <div class="p-bar"></div>
+    <div class="p-bar"></div>
   </div>
 </template>
 
@@ -21,7 +21,7 @@
   }
 }
 
-.p-drawer-toggle .bar {
+.p-bar {
   width: 90%;
   height: 2px;
   background-color: #fff;

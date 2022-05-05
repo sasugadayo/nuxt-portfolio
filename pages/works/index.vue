@@ -45,6 +45,40 @@ export default {
       works,
     }
   },
+  data() {
+    return {
+      meta: {
+        title: 'workページです',
+        description: "sasugada's portfolioのworkページです",
+        type: 'article',
+        url: 'https://sasugadayo.netlify.app/works',
+        image: '',
+      },
+      base: 'https://sasugadayo.netlify.app',
+    }
+  },
+  head() {
+    return {
+      title: this.meta.title,
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: this.meta.description,
+        },
+        {
+          hid: 'og:description',
+          property: 'og:description',
+          content: this.meta.description,
+        },
+        { hid: 'og:title', property: 'og:title', content: this.meta.title },
+        { hid: 'og:type', property: 'og:type', content: this.meta.type },
+        { hid: 'og:url', property: 'og:url', content: this.meta.url },
+        { hid: 'og:image', property: 'og:image', content: this.meta.image },
+        { name: 'twitter:title', content: this.meta.title },
+      ],
+    }
+  },
 }
 </script>
 

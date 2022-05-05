@@ -1,8 +1,8 @@
 <template>
   <div>
-    <section class="hero-section">
-      <div class="mainVisual hero">
-        <div class="text-wrapper">
+    <section class="p-hero-section">
+      <div class="mainVisual p-hero">
+        <div class="p-text-wrapper">
           <span class="p-letters">Y</span>
           <span class="p-letters">A</span>
           <span class="p-letters">M</span>
@@ -164,6 +164,14 @@ export default {
   },
   data() {
     return {
+      meta: {
+        title: 'トップページです',
+        description: "sasugada's portfolioのトップページです",
+        type: 'article',
+        url: 'https://sasugadayo.netlify.app',
+        image: '',
+      },
+      base: 'https://sasugadayo.netlify.app',
       chartdata: {
         labels: Data.data.map((data) => data.subject),
         datasets: [
@@ -191,17 +199,37 @@ export default {
     }
   },
 
+  head() {
+    return {
+      title: this.meta.title,
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: this.meta.description,
+        },
+        {
+          hid: 'og:description',
+          property: 'og:description',
+          content: this.meta.description,
+        },
+        { hid: 'og:title', property: 'og:title', content: this.meta.title },
+        { hid: 'og:type', property: 'og:type', content: this.meta.type },
+        { hid: 'og:url', property: 'og:url', content: this.meta.url },
+        { hid: 'og:image', property: 'og:image', content: this.meta.image },
+        { name: 'twitter:title', content: this.meta.title },
+      ],
+    }
+  },
+
   mounted() {
-    // const timeline = new TimelineMax()
-    // var timeline = gsap.timeline({ ease: 'power2.out', duration: 1 })
-    // timeline
     gsap
       .timeline({
         defaults: { ease: 'Power2.easeInOut', duration: 1 }, // timelineのプロパティ
       })
-      .fromTo('.hero', 1, { height: '0%' }, { height: '80%' })
+      .fromTo('.p-hero', 1, { height: '0%' }, { height: '80%' })
       .addLabel('up')
-      .fromTo('.hero', 1, { width: '100%' }, { width: '75%' }, 'up+=0.2')
+      .fromTo('.p-hero', 1, { width: '100%' }, { width: '75%' }, 'up+=0.2')
       .fromTo('.p-overlay', 1, { x: '-100%' }, { x: '0%' }, 'up+=0.2')
       .fromTo(
         '.p-header-title',
@@ -370,7 +398,7 @@ export default {
   }
 }
 
-.hero-section {
+.p-hero-section {
   height: calc(100vh - 64px);
   width: 100%;
   display: flex;
@@ -378,17 +406,17 @@ export default {
   align-items: center;
 }
 
-.hero {
+.p-hero {
   position: relative;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
 }
 
-.hero img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.text-wrapper {
+.p-text-wrapper {
   position: absolute;
   top: 40%;
   left: -10%;
@@ -409,7 +437,6 @@ export default {
   bottom: 0;
   left: 0;
   background-image: linear-gradient(135deg, #fdfcfb 0%, #e2d1c3 100%);
-  // background-image: linear-gradient(-225deg, #473B7B 0%, #3584A7 51%, #30D2BE 100%);
   z-index: -1;
 }
 
