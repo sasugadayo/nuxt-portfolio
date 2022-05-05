@@ -17,9 +17,7 @@
             <dt class="worksMainVisual__itemName">制作期間</dt>
             <dd>{{ work.term }}</dd>
           </dl>
-          <p v-if="work.overview" style="white-space: pre-wrap">
-            {{ work.overview }}
-          </p>
+          <p v-if="work.overview">{{ work.overview }}</p>
         </div>
         <figure class="worksMainVisual__thumbnail">
           <img
@@ -39,11 +37,11 @@
           <a :href="work.url" target="_blank">{{ work.url }}</a>
         </dd>
       </dl>
-      <dl v-if="work.position" class="worksItem">
+      <!-- <dl v-if="work.position" class="worksItem">
         <dt class="worksItem__title">ポジション</dt>
         <dd class="worksItem__contents">{{ work.position }}</dd>
-      </dl>
-      <dl v-if="work.responsibility" class="worksItem">
+      </dl> -->
+      <!-- <dl v-if="work.responsibility" class="worksItem">
         <dt class="worksItem__title">担当</dt>
         <dd class="worksItem__contents">
           <span
@@ -52,8 +50,8 @@
             v-text="res"
           />
         </dd>
-      </dl>
-      <dl class="worksItem">
+      </dl> -->
+      <!-- <dl class="worksItem">
         <dt class="worksItem__title">技術</dt>
         <dd class="worksItem__contents">
           <span
@@ -62,8 +60,8 @@
             v-text="skill"
           />
         </dd>
-      </dl>
-      <dl v-if="work.tools" class="worksItem">
+      </dl> -->
+      <!-- <dl v-if="work.tools" class="worksItem">
         <dt class="worksItem__title">ツール</dt>
         <dd class="worksItem__contents">
           <span
@@ -72,10 +70,14 @@
             v-text="tool"
           />
         </dd>
+      </dl> -->
+      <dl class="worksItem">
+        <dt class="worksItem__title">詳細</dt>
+        <dd class="worksItem__contents">{{ work.points }}</dd>
       </dl>
       <dl class="worksItem">
-        <dt class="worksItem__title">アピールポイント</dt>
-        <dd class="worksItem__contents">{{ work.points }}</dd>
+        <dt class="worksItem__title">スキルセット</dt>
+        <dd class="worksItem__contents">{{ work.skill }}</dd>
       </dl>
     </div>
 
