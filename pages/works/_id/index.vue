@@ -17,7 +17,9 @@
             <dt class="worksMainVisual__itemName">制作期間</dt>
             <dd>{{ work.term }}</dd>
           </dl>
-          <p v-if="work.overview">{{ work.overview }}</p>
+          <p v-if="work.overview" style="white-space: pre-wrap">
+            {{ work.overview }}
+          </p>
         </div>
         <figure class="worksMainVisual__thumbnail">
           <img
@@ -73,7 +75,9 @@
       </dl>
       <dl class="worksItem">
         <dt class="worksItem__title">アピールポイント</dt>
-        <dd class="worksItem__contents">{{ work.points }}</dd>
+        <dd class="worksItem__contents" style="white-space: pre-wrap">
+          {{ work.points }}
+        </dd>
       </dl>
     </div>
 
