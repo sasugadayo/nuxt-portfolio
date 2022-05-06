@@ -333,6 +333,7 @@ export default {
           this.completeMessage = 'お問い合わせを送信しました！'
           this.resetForm()
           this.isSubmit = true
+          this.$router.push({ name: 'contact-complete' })
         })
         .catch(() => {
           this.completeMessage = 'お問い合わせの送信が失敗しました'

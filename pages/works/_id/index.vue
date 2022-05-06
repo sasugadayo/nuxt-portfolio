@@ -72,7 +72,7 @@
         </dd>
       </dl> -->
       <dl class="worksItem">
-        <dt class="worksItem__title">詳細</dt>
+        <dt class="worksItem__title">ポイント</dt>
         <dd class="worksItem__contents">{{ work.points }}</dd>
       </dl>
       <dl class="worksItem">

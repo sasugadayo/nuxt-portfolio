@@ -18,18 +18,18 @@ exports.handler = function(event, context, callback) {
   // トランスポート
   const transport = {
     service : 'gmail',
-    auth    : auth
+    auth
   };
 
-  let transporter = nodemailer.createTransport(transport);
+  const transporter = nodemailer.createTransport(transport);
 
-  const url = 'https://peaceful-longma-729436.netlify.app/';
+  const url = 'https://sasugadayo.netlify.app/';
 
-  let mailOptions = {
-    from    : `notes by SHARESL <info@sharesl.net>`,
+  const mailOptions = {
+    from    : `山口 流石 <sasugadayo1@gmail.com>`,
     to      : `${useremail}`,
-    subject : '【notes by SHARESL】お問い合わせありがとうございます',
-    text    : `${username} 様\n\nお問い合わせありがとうございます。\n以下の内容でフォームを送信いたしました。\n数日中に追って担当者よりメールにて回答をお送りいたします。\n今しばらくお待ちください。\n\n------ 送信内容 ------\n【お名前】\n${username}\n\n【フリガナ】\n${katakana}\n\n【メールアドレス】\n${useremail}\n\n【お問い合わせ内容】\n${message}\n\n--------------------\nnotes by SHARESL\n${url}\n`,
+    subject : 'お問い合わせありがとうございます',
+    text    : `${username} 様\n\nお問い合わせありがとうございます。\n以下の内容でフォームを送信いたしました。\n数日中に追ってメールにて回答をお送りいたします。\n今しばらくお待ちください。\n\n------ 送信内容 ------\n【お名前】\n${username}\n\n【フリガナ】\n${katakana}\n\n【メールアドレス】\n${useremail}\n\n【お問い合わせ内容】\n${message}\n\n--------------------\n山口 流石\n${url}\n`,
   };
 
   transporter.sendMail(mailOptions, function(error, info) {
