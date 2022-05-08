@@ -85,7 +85,7 @@
       </div>
     </section>
 
-    <section id="skill">
+    <section id="skill" class="section">
       <div>
         <h2 class="headingPrimary">My skill</h2>
         <div
